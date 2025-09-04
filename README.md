@@ -1,6 +1,6 @@
-# DeepCGASPred
+# AttentionScore
 
-![logo](img/figure_2.png)
+![logo](img/figure-1.png)
 
 ## Table of content
 
@@ -14,8 +14,6 @@
 
 - [**Run Prediction**](#Run_Prediction)
 
-- [**Streamlit app**](#Streamlit_app)
-
 - [**Citation**](#citation)
 
 - [**License**](#license) 
@@ -23,7 +21,7 @@
 
 ## Description
 
-**DeepCGASPred is deep learning based scoring function for CGASP structure based virtual screening.** <br><br>
+**AttentionScore is deep learning based scoring function for METTL3 structure based virtual screening.** <br><br>
 
 The User have to through the following steps:
 
