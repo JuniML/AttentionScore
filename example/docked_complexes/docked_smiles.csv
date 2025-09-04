@@ -1,0 +1,7 @@
+file,mol_index,name,smiles
+/home/juni/working/mettl3/notebooks/attention_score/AttentionScore/example/docked_complexes/mol_0_docked.sdf,0,mol_0,[H]O[C@@H]1[C@@H](CCc2ccc3ccc(N([H])Cc4ccccc4)nc3c2)C[C@@H](n2ccc3c(N([H])[H])ncnc32)[C@@H]1O[H]
+/home/juni/working/mettl3/notebooks/attention_score/AttentionScore/example/docked_complexes/mol_1_docked.sdf,0,mol_1,[H]N(Cc1ccc2nc(CN([H])C(=O)c3cnc4ccccc4n3)cn2c1)CC1CCCCC1
+/home/juni/working/mettl3/notebooks/attention_score/AttentionScore/example/docked_complexes/mol_2_docked.sdf,0,mol_2,[H]N(Cc1ccccc1)c1cc(N2CCC3(CC2)CN(c2ccc(CN4CCC(C)(C)CC4)nc2)CCO3)ncn1
+/home/juni/working/mettl3/notebooks/attention_score/AttentionScore/example/docked_complexes/mol_3_docked.sdf,0,mol_3,[H]N(c1cc(N2CCC3(CC2)CN(c2ccc(CN4CCC(C)(C)CC4)cc2)CC(=O)N3[H])ncn1)C1CC1
+/home/juni/working/mettl3/notebooks/attention_score/AttentionScore/example/docked_complexes/mol_4_docked.sdf,0,mol_4,[H]N(Cc1cc2ccc(Cn3cc(-c4cc(=O)n5ccccc5n4)nn3)cc2n1[H])CC1CCC1
+/home/juni/working/mettl3/notebooks/attention_score/AttentionScore/example/docked_complexes/mol_5_docked.sdf,0,mol_5,[H]N([H])c1ncnc2c1c(-c1ccn(C)n1)cn2-c1cncc(CN(C)CC2CC2)c1
