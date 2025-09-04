@@ -26,7 +26,10 @@
 The User have to through the following steps:
 
 **1. Retrieval of Molecules**
-> The notebook is present in the Notebook directory. 
+> The notebook is present in the Notebook 1_Retrieval_of_molecules.ipynb. 
+
+**2. Convert smiles to mol2**
+> The generated smiles for decoys and actives should be converted to mol2 file
 
 **2. Convert smiles to mol2**
 > The generated smiles for decoys and actives should be converted to mol2 file
