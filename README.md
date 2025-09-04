@@ -26,25 +26,25 @@
 The User have to through the following steps:
 
 **1. Retrieval of Molecules**
-> The notebook is present in the Notebook 1_Retrieval_of_molecules.ipynb. 
+> The notebook is present in the Notebook directory. 
 
-**2. Convert smiles to mol2**
+**2. Generation of DeepCoy decoys**
+> The DeepCoy algorithm was used to generate decoys for each active molecule. 100 decoys were generated for each active and then 50 optimized decoys were used for each active. User can get the code for DeepCoys from ; https://github.com/AngelRuizMoreno/Jupyter_Dock
+
+**3. Convert smiles to mol2**
 > The generated smiles for decoys and actives should be converted to mol2 file
 
-**2. Convert smiles to mol2**
-> The generated smiles for decoys and actives should be converted to mol2 file
-
-**3. Molecular docking**
+**4. Molecular docking**
 > Molecular docking was carried out using smina 
 
-**4. Genrate Voxel features**
-> RdkitGridFeaturizer from deepchem was used to convert docked complexes into voxel features; https://deepchem.io/
+**5. Genrate Features features**
+> PLEC , ECFP4 and Avalon features were calucalted using ODDT, Rdkit
 
-**5. Train model**
-> In this study 3DCNN with mulihead attention was used. 
+**6. Train model**
+> In this study AttentionScore with mulihead attention Aand autoencoder was used. 
 
 
-**6. Predict**
+**7. Predict**
 > A user-friendly jupyternotebook is prepared for users to use for their molecules
 ## Requirements
 > The required libraries are present in the requirments.yml file.
@@ -52,25 +52,8 @@ The User have to through the following steps:
 > Users have to use the following command to create a virtual environment for this project
 ```
 conda env create -f requirments.yml
-conda activate DeepCGASPred
+conda activate DeepMETLL3
 ```
-## Examples
-> Toy dataset are present in the example directory. the example.ipynb can be used .
-
-## Run_Prediction
-> To run the prediction, Use Jupyter Noteboob or the following command. The DeepCGASPred.py is in the Streamlit directory 
- ```
-conda activate DeepCGASPred
-DeepCGASPred.py -r receptor.pdb -l ligand.sdf -o output.csv
-```
-## Streamlit_app
-> We have developed the graphical userinterface for DeepCGASPred using streamlit app. Install all necassary libraries and then run the following command to run the app.
- ```
-conda activate DeepCGASPred
-streamlit run DeepCGASPred-streamlit.py
-```
-![logo](img/comments.png)
-## Citation
 ## License
 > These notebooks are under MIT, see the LICENSE file for details
 Question about usage or troubleshooting? Please leave a comment here
