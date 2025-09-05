@@ -102,4 +102,28 @@ python AttentionScore.py \
   --model </path/to/model_FullModel.pth> \
   [--max-per-file N] [--cpu]
 ```
-
+Required arguments
+-r, --receptor : path to receptor PDB (used for PLEC features)
+-l, --ligands : a single docked SDF, a multi-conformer SDF, or a directory of .sdf
+-o, --out : output CSV path
+--model : path to your trained AttentionScore checkpoint (.pth)
+Optional flags
+--max-per-file N : when -l is a multi-conformer SDF, limit to the first N entries per file (default: all)
+--cpu : force CPU inference (helpful on low-VRAM GPUs)
+Examples
+Single SDF (one complex):
+'''
+python scripts/DeepCGASPred.py -r receptor.pdb -l docked.sdf -o out.csv --model /path/to/model_FullModel.pth
+'''
+All SDFs in a folder:
+python scripts/DeepCGASPred.py -r receptor.pdb -l /path/to/docked_sdf_dir -o out.csv --model /path/to/model_FullModel.pth
+Multi-conformer SDF (take first 10), CPU only:
+python scripts/DeepCGASPred.py -r receptor.pdb -l docked_multi.sdf -o out.csv --max-per-file 10 --cpu
+Output columns
+molecule — title/index from SDF
+smiles — taken from SDF or recovered via RDKit
+source — input SDF path
+probability — predicted activity probability (0–1)
+activity — binary class (1=Active, 0=Inactive)
+activity_label — human-readable label
+Note: The CLI expects docked SDFs. If you only have MOL2 or SMILES, use the Streamlit app to run Open Babel + smina + prediction in one place.
