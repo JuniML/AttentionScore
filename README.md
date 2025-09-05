@@ -1,11 +1,12 @@
 # AttentionScore
 
 <p align="center">
-  <img src="img/figure-1.png" alt="AttentionScore Logo" width="400"/>
+  <img src="img/figure-1.png" alt="AttentionScore Logo" width="420"/>
 </p>
 
 <p align="center">
-  <b>A Deep Learning–Based Target-Specific Scoring Function for METTL3 Virtual Screening</b>
+  <b>A Deep Learning–Based Target-Specific Scoring Function for METTL3 Virtual Screening</b><br/>
+  <i>Developed by Dr&nbsp;Muhammad&nbsp;Junaid, Shenzhen University</i>
 </p>
 
 ---
@@ -18,64 +19,67 @@
 ---
 
 ## 📑 Table of Contents
-- [Description](#description)
-- [Features](#features)
-- [Workflow](#workflow)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Examples](#examples)
-- [Run Prediction](#run-prediction)
-- [Citation](#citation)
-- [License](#license)
+- [Description](#-description)
+- [Features](#-features)
+- [Workflow](#-workflow)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
+- [Prediction (CLI)](#-prediction-cli)
+- [Streamlit App](#-streamlit-app)
+- [Examples](#-examples)
+- [Repository Layout](#-repository-layout)
+- [Citation](#-citation)
+- [License](#-license)
 
 ---
 
 ## 🧬 Description
 
-**AttentionScore** is a **deep learning–based scoring function** designed for **structure-based virtual screening (SBVS)** of **METTL3**, a key RNA methyltransferase and emerging anticancer target.  
+**AttentionScore** is a **deep learning–based scoring function** for **structure-based virtual screening (SBVS)** of **METTL3**, a key RNA methyltransferase and emerging anticancer target.
 
-The framework integrates **multi-head attention** and **autoencoder-based latent compression** with ligand-centric and interaction-aware descriptors (ECFP4, Avalon, PLEC) to improve accuracy and reduce dataset biases.
+The framework combines a dual-stream network with **multi-head attention** and **autoencoder-style compression**, integrating ligand-centric and interaction-aware descriptors (**Avalon-512**, **ECFP4**, **PLEC-4092**) for robust target-specific prediction.
 
 ---
 
 ## ✨ Features
-- ⚡ **End-to-end pipeline**: from molecule preparation to prediction  
-- 🧪 **Target-specific scoring** for METTL3  
-- 🧠 **Attention + Autoencoder fusion** for robust representation learning  
-- 🔬 **Bias-aware decoy generation** using [DeepCoy](https://github.com/AngelRuizMoreno/Jupyter_Dock)  
-- 📊 **Feature engineering** with ODDT & RDKit (PLEC, ECFP4, Avalon)  
-- 🖥️ **User-friendly Jupyter notebooks** for training and prediction  
+
+- ⚡ **End-to-end pipeline**: from molecules to activity prediction  
+- 🧪 **Target-specific**: optimized for **METTL3**  
+- 🧠 **Attention + compression** fusion of ligand and interaction features  
+- 🔬 **Descriptors**: PLEC (ODDT), Avalon/ECFP4 (RDKit)  
+- 🧰 **Two interfaces**:
+  - **CLI** (`DeepCGASPred.py`) for scripted prediction on **docked SDF(s)**
+  - **Streamlit UI** for **SDF / MOL2 / SMILES** routes (with Open Babel + smina)
 
 ---
 
 ## 🔄 Workflow
-The typical workflow for AttentionScore involves:
 
-1. **Retrieval of Molecules**  
-   > Example notebook available in `Notebooks/`
-
-2. **Generation of DeepCoy Decoys**  
-   > ~100 decoys per active → 50 optimized decoys retained  
-
-3. **SMILES to MOL2 Conversion**
-
-4. **Molecular Docking**  
-   > Performed using **smina**  
-
-5. **Feature Generation**  
-   > PLEC, ECFP4, Avalon (via ODDT & RDKit)  
-
-6. **Model Training**  
-   > Deep neural network with **multi-head attention** + **autoencoder**
-
-7. **Prediction**  
-   > User-friendly notebook for applying AttentionScore to your own molecules  
+1. **Collect actives & decoys** (e.g., DeepCoy)  
+2. **3D preparation** (SMILES → MOL2, 3D + minimization)  
+3. **Docking** (smina) → **SDF**  
+4. **Feature generation**: **PLEC-4092** (protein–ligand), **Avalon-512** (ligand)  
+5. **Training**: dual-stream attention network  
+6. **Prediction**: via CLI or Streamlit app
 
 ---
 
 ## ⚙️ Requirements
-All dependencies are listed in `requirements.yml`.  
 
+- Python **3.9+**
+- Recommended conda env in `requirements.yml`
+- System tools (as needed):
+  - `smina` — required by Streamlit **MOL2**/**SMILES** routes for docking  
+  - `obabel` (Open Babel CLI) — required by Streamlit **SMILES** route for 3D building
+- Python packages (prediction):
+  - `numpy`, `pandas`, `torch`, `rdkit-pypi`, `oddt`, `tqdm`
+  - `streamlit`, `requests` (for the UI)
+
+---
+
+## 🏁 Installation
+
+Using **conda** (recommended):
 ```bash
 conda env create -f requirements.yml
 conda activate DeepMETLL3
