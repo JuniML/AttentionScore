@@ -84,6 +84,8 @@ Using **conda** (recommended):
 conda env create -f requirements.yml
 conda activate DeepMETLL3
 
+---
+
 ## 🚀 Prediction (CLI)
 
 DeepCGASPred.py runs end-to-end prediction from docked complexes (SDF) using PLEC-4092 (with your receptor PDB) and Avalon-512, then applies the trained AttentionScore model.
@@ -96,3 +98,4 @@ python DeepCGASPred.py \
   -o <output.csv> \
   --model </path/to/model_FullModel.pth> \
   [--max-per-file N] [--cpu]
+
