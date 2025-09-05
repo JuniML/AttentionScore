@@ -24,7 +24,7 @@
 - [Workflow](#-workflow)
 - [Requirements](#-requirements)
 - [Installation](#-installation)
-- [Prediction (CLI)](#-prediction-cli)
+- [Prediction](#-prediction)
 - [Streamlit App](#-streamlit-app)
 - [Examples](#-examples)
 - [Repository Layout](#-repository-layout)
