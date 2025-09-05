@@ -112,13 +112,17 @@ Optional flags
 --cpu : force CPU inference (helpful on low-VRAM GPUs)
 Examples
 Single SDF (one complex):
-'''
+```
 python scripts/DeepCGASPred.py -r receptor.pdb -l docked.sdf -o out.csv --model /path/to/model_FullModel.pth
-'''
+```
 All SDFs in a folder:
+```
 python scripts/DeepCGASPred.py -r receptor.pdb -l /path/to/docked_sdf_dir -o out.csv --model /path/to/model_FullModel.pth
+```
 Multi-conformer SDF (take first 10), CPU only:
+```
 python scripts/DeepCGASPred.py -r receptor.pdb -l docked_multi.sdf -o out.csv --max-per-file 10 --cpu
+```
 Output columns
 molecule — title/index from SDF
 smiles — taken from SDF or recovered via RDKit
