@@ -1,59 +1,81 @@
 # AttentionScore
 
-![logo](img/figure-1.png)
+<p align="center">
+  <img src="img/figure-1.png" alt="AttentionScore Logo" width="400"/>
+</p>
 
-## Table of content
+<p align="center">
+  <b>A Deep Learning–Based Target-Specific Scoring Function for METTL3 Virtual Screening</b>
+</p>
 
-- [**Description**](#description)
+---
 
-- [**Requirements**](#requirements)
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Conda](https://img.shields.io/badge/Conda-Environment-brightgreen)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Deep Learning](https://img.shields.io/badge/Deep%20Learning-PyTorch-red)
 
-- [**Installation**](#installation)
+---
 
-- [**Examples**](#examples)
+## 📑 Table of Contents
+- [Description](#description)
+- [Features](#features)
+- [Workflow](#workflow)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Examples](#examples)
+- [Run Prediction](#run-prediction)
+- [Citation](#citation)
+- [License](#license)
 
-- [**Run Prediction**](#Run_Prediction)
+---
 
-- [**Citation**](#citation)
+## 🧬 Description
 
-- [**License**](#license) 
+**AttentionScore** is a **deep learning–based scoring function** designed for **structure-based virtual screening (SBVS)** of **METTL3**, a key RNA methyltransferase and emerging anticancer target.  
 
+The framework integrates **multi-head attention** and **autoencoder-based latent compression** with ligand-centric and interaction-aware descriptors (ECFP4, Avalon, PLEC) to improve accuracy and reduce dataset biases.
 
-## Description
+---
 
-**AttentionScore is deep learning based scoring function for METTL3 structure based virtual screening.** <br><br>
+## ✨ Features
+- ⚡ **End-to-end pipeline**: from molecule preparation to prediction  
+- 🧪 **Target-specific scoring** for METTL3  
+- 🧠 **Attention + Autoencoder fusion** for robust representation learning  
+- 🔬 **Bias-aware decoy generation** using [DeepCoy](https://github.com/AngelRuizMoreno/Jupyter_Dock)  
+- 📊 **Feature engineering** with ODDT & RDKit (PLEC, ECFP4, Avalon)  
+- 🖥️ **User-friendly Jupyter notebooks** for training and prediction  
 
-The User have to through the following steps:
+---
 
-**1. Retrieval of Molecules**
-> The notebook is present in the Notebook directory. 
+## 🔄 Workflow
+The typical workflow for AttentionScore involves:
 
-**2. Generation of DeepCoy decoys**
-> The DeepCoy algorithm was used to generate decoys for each active molecule. 100 decoys were generated for each active and then 50 optimized decoys were used for each active. User can get the code for DeepCoys from ; https://github.com/AngelRuizMoreno/Jupyter_Dock
+1. **Retrieval of Molecules**  
+   > Example notebook available in `Notebooks/`
 
-**3. Convert smiles to mol2**
-> The generated smiles for decoys and actives should be converted to mol2 file
+2. **Generation of DeepCoy Decoys**  
+   > ~100 decoys per active → 50 optimized decoys retained  
 
-**4. Molecular docking**
-> Molecular docking was carried out using smina 
+3. **SMILES to MOL2 Conversion**
 
-**5. Genrate Features features**
-> PLEC , ECFP4 and Avalon features were calucalted using ODDT, Rdkit
+4. **Molecular Docking**  
+   > Performed using **smina**  
 
-**6. Train model**
-> In this study AttentionScore with mulihead attention Aand autoencoder was used. 
+5. **Feature Generation**  
+   > PLEC, ECFP4, Avalon (via ODDT & RDKit)  
 
+6. **Model Training**  
+   > Deep neural network with **multi-head attention** + **autoencoder**
 
-**7. Predict**
-> A user-friendly jupyternotebook is prepared for users to use for their molecules
-## Requirements
-> The required libraries are present in the requirments.yml file.
-## Installation
-> Users have to use the following command to create a virtual environment for this project
-```
-conda env create -f requirments.yml
+7. **Prediction**  
+   > User-friendly notebook for applying AttentionScore to your own molecules  
+
+---
+
+## ⚙️ Requirements
+All dependencies are listed in `requirements.yml`.  
+
+```bash
+conda env create -f requirements.yml
 conda activate DeepMETLL3
-```
-## License
-> These notebooks are under MIT, see the LICENSE file for details
-Question about usage or troubleshooting? Please leave a comment here
