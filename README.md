@@ -176,6 +176,9 @@ External tools (routes 2 & 3)
 
 `smina` must be available in `PATH`
 
+## License
+> These notebooks are under MIT, see the LICENSE file for details
+
 `obabel` (Open Babel CLI) must be in PATH for SMILES → MOL2
 
 
