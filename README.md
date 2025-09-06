@@ -48,7 +48,7 @@ The framework combines a dual-stream network with **multi-head attention** and *
 - 🧠 **Attention + compression** fusion of ligand and interaction features  
 - 🔬 **Descriptors**: PLEC (ODDT), Avalon/ECFP4 (RDKit)  
 - 🧰 **Two interfaces**:
-  - **CLI** (`DeepCGASPred.py`) for scripted prediction on **docked SDF(s)**
+  - **CLI** (`AttentionScore.py`) for scripted prediction on **docked SDF(s)**
   - **Streamlit UI** for **SDF / MOL2 / SMILES** routes (with Open Babel + smina)
 
 ---
@@ -166,7 +166,7 @@ In the sidebar, choose one:
 
 1 **HTTP(S) URL** (the app will download)
 
-**Docking box*8
+**Docking box**
 
 **Manual:** enter center/size
 
@@ -177,3 +177,5 @@ External tools (routes 2 & 3)
 `smina` must be available in `PATH`
 
 `obabel` (Open Babel CLI) must be in PATH for SMILES → MOL2
+
+
