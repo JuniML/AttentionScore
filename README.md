@@ -103,13 +103,13 @@ python AttentionScore.py \
   [--max-per-file N] [--cpu]
 ```
 Required arguments
--r, --receptor : path to receptor PDB (used for PLEC features)
--l, --ligands : a single docked SDF, a multi-conformer SDF, or a directory of .sdf
--o, --out : output CSV path
---model : path to your trained AttentionScore checkpoint (.pth)
+`-r`, --receptor : path to receptor PDB (used for PLEC features)
+`-l`, --ligands : a single docked SDF, a multi-conformer SDF, or a directory of .sdf
+`-o`, `--out` : output CSV path
+`--model` : path to your trained AttentionScore checkpoint (.pth)
 Optional flags
---max-per-file N : when -l is a multi-conformer SDF, limit to the first N entries per file (default: all)
---cpu : force CPU inference (helpful on low-VRAM GPUs)
+`--max-per-file` N : when -l is a multi-conformer SDF, limit to the first N entries per file (default: all)
+`--cpu` : force CPU inference (helpful on low-VRAM GPUs)
 Examples
 Single SDF (one complex):
 ```
