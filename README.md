@@ -113,21 +113,67 @@ Optional flags\
 Examples\
 Single SDF (one complex):
 ```
-python scripts/DeepCGASPred.py -r receptor.pdb -l docked.sdf -o out.csv --model /path/to/model_FullModel.pth
+python scripts/AttentioScore.py -r receptor.pdb -l docked.sdf -o out.csv --model /path/to/model_FullModel.pth
 ```
 All SDFs in a folder:
 ```
-python scripts/DeepCGASPred.py -r receptor.pdb -l /path/to/docked_sdf_dir -o out.csv --model /path/to/model_FullModel.pth
+python scripts/AttentioScore.py -r receptor.pdb -l /path/to/docked_sdf_dir -o out.csv --model /path/to/model_FullModel.pth
 ```
 Multi-conformer SDF (take first 10), CPU only:
 ```
-python scripts/DeepCGASPred.py -r receptor.pdb -l docked_multi.sdf -o out.csv --max-per-file 10 --cpu
+python scripts/AttentioScore.py -r receptor.pdb -l docked_multi.sdf -o out.csv --max-per-file 10 --cpu
 ```
 Output columns
-molecule — title/index from SDF\
-smiles — taken from SDF or recovered via RDKit\
-source — input SDF path\
-probability — predicted activity probability (0–1)\
-activity — binary class (1=Active, 0=Inactive)\
-activity_label — human-readable label\
-Note: The CLI expects docked SDFs. If you only have MOL2 or SMILES, use the Streamlit app to run Open Babel + smina + prediction in one place.\
+`molecule` — title/index from SDF\
+`smiles` — taken from SDF or recovered via RDKit\
+`source` — input SDF path\
+`probability` — predicted activity probability (0–1)\
+`activity` — binary class (1=Active, 0=Inactive)\
+`activity_label` — human-readable label\
+**Note:** The CLI expects **docked** SDFs. If you only have **MOL2** or **SMILES**, use the **Streamlit app** to run Open Babel + smina + prediction in one place.
+
+## 🖥️ Streamlit App
+
+A friendly UI that supports three entry points and wraps preparation where needed:\
+
+1. **Docked SDF → Predict**\
+Upload single/multi-conformer SDF, or a ZIP of SDFs.\
+
+2. **MOL2 (undocked) → smina → Predict**\
+Upload .mol2 (or ZIP). The app docks with smina, then predicts.\
+
+3. **SMILES → Open Babel (3D/minimize) → smina → Predict**\
+
+Upload a CSV with columns smiles (optional name), or paste lines:\
+```
+CCO
+aspirin,CC(=O)OC1=CC=CC=C1C(=O)O
+```
+
+The app builds 3D MOL2 via Open Babel, docks with smina, then predicts.
+**Start the app**
+```
+pip install streamlit numpy pandas torch rdkit-pypi oddt requests
+streamlit run streamlit_app.py
+```
+**Checkpoint options (bypass 200 MB upload limit)**
+
+In the sidebar, choose one:
+
+1 **Upload** .pth
+
+1 **Local path** (absolute path on the server)
+
+1 **HTTP(S) URL** (the app will download)
+
+Docking box
+
+Manual: enter center/size
+
+Reference ligand: upload SDF/MOL2/PDB → box is computed around it (with adjustable padding)
+
+External tools (routes 2 & 3)
+
+smina must be available in PATH
+
+obabel (Open Babel CLI) must be in PATH for SMILES → MOL2
