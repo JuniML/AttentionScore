@@ -166,14 +166,14 @@ In the sidebar, choose one:
 
 1 **HTTP(S) URL** (the app will download)
 
-Docking box
+**Docking box*8
 
-Manual: enter center/size
+**Manual:** enter center/size
 
-Reference ligand: upload SDF/MOL2/PDB → box is computed around it (with adjustable padding)
+**Reference ligand:** upload SDF/MOL2/PDB → box is computed around it (with adjustable padding)
 
 External tools (routes 2 & 3)
 
-smina must be available in PATH
+`smina` must be available in `PATH`
 
-obabel (Open Babel CLI) must be in PATH for SMILES → MOL2
+`obabel` (Open Babel CLI) must be in PATH for SMILES → MOL2
