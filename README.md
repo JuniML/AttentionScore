@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>A Deep Learning–Based Target-Specific Scoring Function for METTL3 Virtual Screening</b><br/>
-  <i>Developed by Dr&nbsp;Muhammad&nbsp;Junaid, Shenzhen University</i>
+  
 </p>
 
 ---
