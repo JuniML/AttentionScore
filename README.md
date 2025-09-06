@@ -64,7 +64,7 @@ The framework combines a dual-stream network with **multi-head attention** and *
 
 ---
 
-## ⚙️ Requirements
+## ⚙️Requirements
 
 - Python **3.9+**
 - Recommended conda env in `requirements.yml`
@@ -102,7 +102,7 @@ python AttentionScore.py \
   --model </path/to/model_FullModel.pth> \
   [--max-per-file N] [--cpu]
 ```
-Required arguments
+Required arguments\
 `-r`, --receptor : path to receptor PDB (used for PLEC features)\
 `-l`, --ligands : a single docked SDF, a multi-conformer SDF, or a directory of .sdf\
 `-o`, `--out` : output CSV path\
@@ -124,10 +124,10 @@ Multi-conformer SDF (take first 10), CPU only:
 python scripts/DeepCGASPred.py -r receptor.pdb -l docked_multi.sdf -o out.csv --max-per-file 10 --cpu
 ```
 Output columns
-molecule — title/index from SDF
-smiles — taken from SDF or recovered via RDKit
-source — input SDF path
-probability — predicted activity probability (0–1)
-activity — binary class (1=Active, 0=Inactive)
-activity_label — human-readable label
-Note: The CLI expects docked SDFs. If you only have MOL2 or SMILES, use the Streamlit app to run Open Babel + smina + prediction in one place.
+molecule — title/index from SDF\
+smiles — taken from SDF or recovered via RDKit\
+source — input SDF path\
+probability — predicted activity probability (0–1)\
+activity — binary class (1=Active, 0=Inactive)\
+activity_label — human-readable label\
+Note: The CLI expects docked SDFs. If you only have MOL2 or SMILES, use the Streamlit app to run Open Babel + smina + prediction in one place.\
